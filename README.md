@@ -13,7 +13,7 @@
 > 성공적으로 읽어보기도 전에 읽기 오류가 발생하거나 입력의 끝에 도달하면 EOF(-1) 리턴
 
 ```jsx
-while(scanf("%d %d", &a, &b) != EOF)
+while(scanf("%d %d", &a, &b) != EOF) //[BOJ] 10951_A+B -4.cpp
 ```
 
 ---
