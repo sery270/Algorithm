@@ -15,6 +15,3 @@ int main() {
         cout << alpha[j] << " ";
     return 0;
 }
-
-
-출처: https://min92.tistory.com/51 [A Common Programmer]
