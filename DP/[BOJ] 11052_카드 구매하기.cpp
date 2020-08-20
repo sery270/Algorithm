@@ -12,6 +12,7 @@ int main(){
     }
 
     M[1] = P[1];
+    //bottom-up
     for(int i =2; i <= N; i++){
         tmpMax = 0;
         for(int j = 1; i > j ; j++){

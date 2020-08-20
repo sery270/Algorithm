@@ -5,6 +5,7 @@ using namespace std;
 vector<int> mem(1000000);
 int N;
 
+//top-down
 int dp(int n){
     if(n == 1){return 0;}
     if(mem[n] > 0){return mem[n];}

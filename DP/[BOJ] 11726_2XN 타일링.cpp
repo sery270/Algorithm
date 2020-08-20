@@ -7,6 +7,7 @@ vector<long long> mem(1001);
 int N;
 long long sol;
 
+//top-down
 long long dp(int n){
 //    int m1, m2;
     if(mem[n] > 0){ // 값이 있을 때

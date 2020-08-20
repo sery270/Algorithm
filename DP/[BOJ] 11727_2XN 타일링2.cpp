@@ -5,6 +5,7 @@ using namespace std;
 vector<long long> mem(1001);
 int N;
 
+//top-down
 long long dp(int n){
     if(mem[n] > 0){
         return mem[n];

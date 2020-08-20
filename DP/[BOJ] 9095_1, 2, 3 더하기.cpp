@@ -5,6 +5,7 @@ using namespace std;
 vector<int> mem(11);
 int N, T, sol;
 
+//top-down
 int dp(int n){
     if(mem[n] > 0){
     return mem[n];
