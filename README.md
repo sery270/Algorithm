@@ -1,285 +1,58 @@
-# 😇 Algorithm 😇
+# 😇 세리의 Algorithm 공부😇
 
-## 🟥 I, O (입출력)
+코딩 테스트 대비로 시작했는데, 나름 재밌게 게임 하듯 공부하고 있는 알고리즘님! 잘 부탁해 !
 
-🍎입력 값의 개수를 알 수 없을 때, 입력 받기 → scanf() 리턴 값을 활용 !
+## Algorithm 스터디 conventions
 
-> **scanf**
+### commit convention
 
-> 입력이 성공적이였다면 함수는 성공적으로 읽어들인 인자의 개수 리턴
+> [BOJ] 9465_스티커
 
-> 대부분의 경우 이 리턴값은 형식 문자열에서 읽어들이고자 기대하는 개수와 동일하지만 가끔식 적을 수도 있고 심지어 읽기에 오류가 발생한다면 0 리턴
+> [Docs] - readme, wiki 작성한 경우
 
-> 성공적으로 읽어보기도 전에 읽기 오류가 발생하거나 입력의 끝에 도달하면 EOF(-1) 리턴
+> [Chore] - 동작에 영향을 주는 코드 변경 없는 변경사항 (주석, 정렬 등등)
 
-```cpp
-while(scanf("%d %d", &a, &b) != EOF) //입력 끝에서 while문 빠져나옴
-```
+<br/>
 
----
+### foldering
 
-🍎한 줄 입력 받기 (앞뒤만 공백 처리)
+> BruteForce : 완전탐색
 
-> scanf("%[^\n]\n",s)
+[BruteForce에 대해 공부하고 정리한 WIKI](https://github.com/sery270/Algorithm/wiki/🔵-brute-force)
 
-> 형식을 지정하여 입력을 받을 때, 줄 바꿈 자체를 형식으로 지정하여 받으면 줄 단위로 값을 입력 받을 수 있다.
+> DP : 다이나믹 프로그래밍
 
-> 하지만, 이렇게 형식을 지정하여 입력 받으면, 문자 사이의 공백은 입력되지만,
+[DP에 대해 공부하고 정리한 WIKI](https://github.com/sery270/Algorithm/wiki/🤢-Dynamic-Programing-(DP))
 
-> 문자 앞뒤의 공백이나 줄 바꿈 문자 자체는 입력 받지 않게 되므로,
+> DataStructure : 자료구조
 
-> 입력 받은 그대로 출력하면, 원본과 다르다.
+[자료구조에 대해 공부하고 정리한 WIKI](https://github.com/sery270/Algorithm/wiki/🔶Data-Structure)
 
-> 하지만 공백 처리를 할 때 필요한 방법이다.
+> Greedy : 탐욕법
 
-```cpp
-//줄바꿈을 입력받지 않는다.
-//각 줄의 앞 뒤 공백 & 빈 줄은 입력 받을 수 없다.
-#include <cstdio>
-char s[111];
-int main() {
-    while (scanf("%[^\n]\n",s)==1) {
-        printf("%s\n",s);
-				//출력할 때 줄바꿈을 넣어줘야 한다. -> 입력 받고 바로 출력해야한다.
-    }
-    return 0;
-}
-```
+Greedy 알고리즘에 대해 공부하고 정리한 WIKI
 
----
+> I:O : 입출력, 문자열
 
-🍎한 줄 입력 받기2 (공백 처리 x, 입력 그대로)
+[입출력에 대해 공부하고 정리한 WIKI](https://github.com/sery270/Algorithm/wiki/🟥-I,-O-(입출력))
 
-> c = getchar()
+<br/>
 
-> 문자 하나하나 입력 받으므로, 원본의 줄 바꿈 문자까지 입력 받게 된다.
+## Algorithm 스터디 TIL(Today I Learned)
 
-> 입력 받은 그대로 출력하니, 원본과 똑같다.  (*한글 제외)
+### 🎮 2020/08/24 월
 
-```cpp
-//한 글자씩 입력받고 출력하기 때문에
-//줄바꿈을 입력받는다.
-//각 줄의 앞 뒤 공백 & 빈 줄까지 입력 받을 수 있다.
-#include <cstdio>
-int main() {
-    char c;
-    while ((c = getchar()) && c != EOF) {
-        printf("%c",c);
-				//줄바꿈도 c로 입력받아 출력된다. 
-    }
-    return 0;
-}
-```
-
-> *한글은 자음 모음 단위로 쪼개진다.. 이거 어떻게 하지?
-
-일단 char는 8bit (1byte)이다.
-
-저 따위로 쪼개진다는건 모음 자음 단위가 1byte라는 의미겠지 ? 
-
-근데 한글은 받침도 있고, 쌍자음 쌍모음도 있는데,, 어떻게 한담? ㅜㅡㅜ
-
-```jsx
-박세란
-
-ㅂㅏㄱㅅㅔㄹㅏㄴ
-```
-
----
-
-## 🔶Data Structure
-
-🍊스택
-
-```cpp
-#include <stack>
-stack<char> st;
-```
-
----
-
-🍊큐
-
-```cpp
-#include <queue>
-queue<int> q;
-```
-
----
-
-🍊덱 
-
-```cpp
-#include <deque>
-deque<int> dq;
-
-//덱이 있는데, 왜 큐를 쓸 까..?
-```
-
----
-
-🍊문자열
-
-string s;
-
-- 입력
-
-```cpp
-cin >> s;
-```
-
-- 출력
-
-```cpp
-cout << s;
-```
-
-- 관련 헤더
-
-```cpp
-#include <cstdio>
-#include <iostream>
-```
-
-- 문자열 비교
-
-```cpp
-s.compare("add");
-```
-
-```cpp
-s == "add" 
-//char[]는 ==로 비교 불가능
-```
-
-- 문자열 길이
-
-```cpp
-s.length() // 3
-```
-
-char s[11];
-
-- 입력
-
-```cpp
-cin >> s;
-```
-
-```cpp
-scanf("%s", s);
-```
-
-- 출력
-
-```cpp
-cout << s;
-```
-
-```cpp
-printf("%s", s);
-```
-
-- 관련 헤더
-
-```cpp
-#include <cstdio>
-#include <iostream>
-#include <cstring>
-```
-
-- 문자열 비교
-
-```cpp
-strcmp(s, "add"); // 0이면 같은거 
-```
-
-- 문자열 길이
-
-```cpp
-//원래 크기를 선언해서 씀
-```
-
----
-
-속도 비교
-
-- scanf && printf >> cin & cout
-- strcmp >> compare >> ==
-- 즉, string을 꼭 써야하는게 아니면 char가 더 빠르다.  하지만, string이 더 편하다.
-
-## 🔵 brute force (완전 탐색)
-
-🧊비트 연산 개념
-
-```cpp
-A << B → A * 2^B
-```
-
-```cpp
-A >> B  → A / 2^B 
-```
-
----
-
-🧊비트 연산 활용
-
-```cpp
-(A + B) / 2 → (A + B) >> 1
-```
-
-```cpp
-if(N % 2 == 1) → if(N & 1)
-```
-
-```cpp
-570을 나타내기 → {1,3,4,5,9} → 2 + 2^3 + 2^4 + 2^5 + 2^9 —> 길이가 정해진 2진수를 나타내기 좋음
-```
-
-- N번째 비트가 1인지 검사
-
-    ```cpp
-    570 & (1 << 0) 가 0이면 없는 것/ 0이 아니고 2^N이 나오면 있는 것
-    ```
-
-- N번째 비트를 1로 바꾸기
-
-    ```cpp
-    570 & (1<<N) = 570 :: 이미 N번째 비트가 1인 경우
-    ```
-
-    ```cpp
-    570 & (1<<N) = 570 + 2^N :: N번째 비트가 1이 아닌 경우
-    ```
-
-- N번째 비트를 0로 바꾸기
-
-    ```cpp
-    570 & ~(1<<N) = 570 :: 이미 N번째 비트가 0인 경우
-    ```
-
-    ```cpp
-    570 & ~(1<<N) = 570 - 2^N :: N번째 비트가 0이 아닌 경우
-    ```
-
----
-
-## 🤢 Dynamic Programing (DP)
-
-🎾DP로 풀어야하는 문제의 속성
-
-- Overlapping Subproblem
-    - 문제를 작은 문제로 쪼갤 수 있다.
-    - 큰 문제와 작은 문제를 같은 방법으로 풀 수 있다.
-
-    → 한 문제를 같은 종류의 작은 문제들로 쪼갤 수 있다. 
-
-- Optimal Substructure
-    - 문제의 정답을 작은 문제의 정답에서 구할 수 있다. 즉, 문제의 정답을 작은 문제들의 정답을 합하는 것으로 구할 수 있다.
-    - 어떠한 작은 문제를 풀던, 그 전에 푼 특정 작은 문제의 정답은 변하지 않는다.
-
-    → 각 작은 문제의 답이 항상 일정하다. → Memoization
-
-즉, 작은 문제에 대한 답을 구할 때, 어딘가에 메모를 해두고, 중복 호출이면 메모해놓은 값을 리턴한다. 중복 호출인지 먼저 검토 && 리턴하고, 아니면 답을 구하고 리턴하는 순서이다. 
-
-![스크린샷 2020-08-13 오후 8 55 43](https://user-images.githubusercontent.com/59532818/90131636-690da400-dda7-11ea-9d6a-6b855ea93d92.png)
+- [BOJ] 9465_스티커
+- [BOJ] 9465_스티커_최적화
+- 메모리 최적화 :: 40N Byte → 12N Byte
+    - 점수를 담는 배열의 자료형을 long long으로 잘못 사용한 것을 int로 수정
+        - 8 Byte → 4 Byte
+    - 굳이 윗행, 아랫행 모두 선택되지 않은 경우를 계산하지 않음
+        - 8 * 3N Byte → 4 * 2N Byte
+- 시간 최적화 :: 4N * max() 호출 → 2N * max() 호출
+    - 굳이 윗행, 아랫행 모두 선택되지 않은 경우를 계산하지 않음
+        - 3N * max() 호출 → 2N * max() 호출
+    - 처음과 끝 열은 무조건 1개가 선택된다는 문제의 성질 → bottom-up 알고리즘이므로, 마지막 열에서의 두가지 분기를 통해 sol 계산
+        - N * max() 호출 → 1 * max() 호출
+- <img src="https://user-images.githubusercontent.com/59532818/91048122-21fc9a00-e656-11ea-908c-1f05c9e18162.png" width="40%">
+- <img src="https://user-images.githubusercontent.com/59532818/91048133-25902100-e656-11ea-96d6-c165a6248743.png" width="40%">
