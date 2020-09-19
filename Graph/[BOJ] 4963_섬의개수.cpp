@@ -1,4 +1,7 @@
 #include <iostream>
+#include <cstdio>
+// scanf, printf 를 사용하면 시간이 4배가 줄어든다.
+// 앞으로 까다로운 입출력 아니면, 이걸 쓰자.
 #include <vector>
 using namespace std;
 
@@ -23,6 +26,9 @@ int cnt = 0;
 //          //cout << "dfs>>>" << i << "x: " << x << "y: " << y << endl;
 //     }
 // }
+bool available(int nowH, int nowW) {
+	return nowW >= 1 && nowW <= W && nowH >= 1 && nowH <= H;
+}
 
 void dfs(int x, int y){
     if(g[x][y] == 0){
@@ -34,7 +40,7 @@ void dfs(int x, int y){
     for (int i =0; i < 8; i++) {
         //이렇게 재귀 호출이 필요한 경우를 필터링 해주는 것은 시간적으로 많이 절약된다. 
         //메모리는 큰 상관이 없다.
-        if(g[x+dx[i]][y+dy[i]] == 1){
+        if(g[x+dx[i]][y+dy[i]] == 1 && available(x+dx[i], y+dy[i])){
             dfs(x+dx[i], y+dy[i]);
         }
          //cout << "dfs>>>" << i << "x: " << x << "y: " << y << endl;
@@ -46,7 +52,8 @@ void dfs(int x, int y){
 //딱히 지도 초기화 필요가 없는게, 어차피 다 0으로 만들거임
 int main(){
     
-    cin >> W >> H;
+    //cin >> W >> H;
+    scanf("%d %d", &W, &H);
     while(W != 0 && H != 0){
         
         cnt = 0;
@@ -54,7 +61,8 @@ int main(){
         g.resize(52,vector<int>(52));
         for(int i = 1; i<= H; i++){
             for(int j = 1; j<= W; j++){
-                cin >> tmp;
+                //cin >> tmp;
+                scanf("%d", &tmp);
                 g[i][j] = tmp;
             }
         }
@@ -68,8 +76,11 @@ int main(){
                 }
             }
         }
-        cout << cnt << endl;
-        cin >> W >> H;
+        // cout << cnt << endl;
+
+        printf("%d\n", cnt)
+;        //cin >> W >> H;
+        scanf("%d %d", &W, &H);
     }
     
     
