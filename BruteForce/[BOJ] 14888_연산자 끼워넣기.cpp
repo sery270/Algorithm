@@ -40,10 +40,13 @@ int main(){
         scanf("%d", &tmp);
         opList.push_back(tmp);
     }
-    if (opList[0]>0) go(1, list[0] + list[1], opList[0]-1, opList[1], opList[2], opList[3]);
-    if (opList[1]>0) go(1, list[0] - list[1], opList[0], opList[1]-1, opList[2], opList[3]);
-    if (opList[2]>0) go(1, list[0] * list[1], opList[0], opList[1], opList[2]-1, opList[3]);
-    if (opList[3]>0) go(1, int(list[0] / list[1]), opList[0], opList[1], opList[2], opList[3]-1);
+    go(0, list[0], opList[0], opList[1], opList[2], opList[3]);
+
+    // 아래 처럼 하면 3번이나 더 불필요한 재귀 호출을 하게 됨 
+    // if (opList[0]>0) go(1, list[0] + list[1], opList[0]-1, opList[1], opList[2], opList[3]);
+    // if (opList[1]>0) go(1, list[0] - list[1], opList[0], opList[1]-1, opList[2], opList[3]);
+    // if (opList[2]>0) go(1, list[0] * list[1], opList[0], opList[1], opList[2]-1, opList[3]);
+    // if (opList[3]>0) go(1, int(list[0] / list[1]), opList[0], opList[1], opList[2], opList[3]-1);
     
     printf("%d\n%d\n", maxSol, minSol);
     

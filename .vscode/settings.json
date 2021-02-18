@@ -3,6 +3,7 @@
         "stack": "cpp",
         "queue": "cpp",
         "deque": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "iostream": "cpp"
     }
 }
