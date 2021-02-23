@@ -1,42 +1,31 @@
 #include <cstdio>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
-vector<int> mem(11);
-int N, T, sol;
+int T, n;
+vector<int> D;
 
-//top-down
 int dp(int n){
-    if(mem[n] > 0){
-    return mem[n];
-    }else{
-    mem[n] = dp(n-1) + dp(n-2) + dp(n-3);
+    if (D[n] > 0){
+        return D[n];
     }
-return mem[n];
-
+    D[n] = dp(n-1) + dp(n-2) + dp(n-3);
+    return D[n];
 }
 
 
 int main(){
-    mem[0] = 1;
-    mem[1] = 1;
-    mem[2] = 2;
-    
-
     scanf("%d", &T);
-
-    for(int i =0 ; i<T; i++){
-        scanf("%d", &N);
-
-        if(N == 1){
-            sol = 1;
-        }else if(N == 2){
-            sol = 2;
-        }else{
-            sol = dp(N);
-        }
-        printf("%d\n", sol);
+    
+    while(T--){
+        scanf("%d", &n);
+        D.resize(n+1);
+        D[0] = 1;
+        D[1] = 1;
+        D[2] = 2;
+        printf("%d\n", dp(n));
+        
     }
-
-    return 0; 
+    return 0;
 }
