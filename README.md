@@ -2,6 +2,7 @@
 
 코딩 테스트 대비로 시작했는데, 나름 재밌게 게임 하듯 공부하고 있는 알고리즘님! 잘 부탁해 !
 
+
 ## Algorithm 스터디 conventions
 
 ### commit convention
@@ -56,3 +57,8 @@ Greedy 알고리즘에 대해 공부하고 정리한 WIKI
         - N * max() 호출 → 1 * max() 호출
 - <img src="https://user-images.githubusercontent.com/59532818/91048122-21fc9a00-e656-11ea-908c-1f05c9e18162.png" width="40%">
 - <img src="https://user-images.githubusercontent.com/59532818/91048133-25902100-e656-11ea-96d6-c165a6248743.png" width="40%">
+
+
+### 🎮 2021/04/14 수
+- 주언어 python으로 다시 돌아왔습니다. C++도 좋긴하지만이 아니라 나빴습니다..
+- [Python 자료형에 대한 정리](https://github.com/sery270/Algorithm/blob/master/Docs/python%20%EC%9E%90%EB%A3%8C%ED%98%95.md)
