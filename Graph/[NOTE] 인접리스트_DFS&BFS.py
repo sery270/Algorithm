@@ -8,6 +8,11 @@ BFSvisited = [False for _ in range(N+1)]
 
 
 # 인접 리스트 입력
+# 세 개의 인덱스, 노드 번호/ 의미 없음 그냥 순서/ 0은 노드 번호, 1은 노드간 비용
+# 두 개의 인덱스에 있는 값 (튜플), (노드 번호, 노드 간의 거리)
+# 세 개의 인덱스에 있는 값 (정수), 튜플[0] 노드 번호/ 튜플[1] 노드간 비용
+# graph[1][2][0] : 1번 node 리스트에 세번째로 저장된 node의 번호 
+# graph[1][2][1] : 1번 node와 graph[1][2][0]의 거리/ node1 리스트에 세번째로 저장된 node와의 거리 
 graph = [[] for _ in range(N+1)]
 for i in range(M):
   node, node2 = map(int,input().split())
@@ -15,10 +20,12 @@ for i in range(M):
   # 연결됨 & 무가중치 -> 0
   graph[node].append((node2,0))
   graph[node2].append((node,0))
+# 노드 번호 상관 없이 append 되므로, 
 # 노드 번호 순으로 정렬
 for i in range(1, N+1):
   graph[i] = sorted(graph[i], key = lambda x: x[0])
 # print(graph)
+
 
 # DFS 인접 리스트
 def DFS(g, v):
