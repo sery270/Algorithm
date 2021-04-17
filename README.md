@@ -4,6 +4,51 @@
 
 ## Algorithm 스터디 TIL(Today I Learned)
 
+### 🎮 2021/04/17 토
+
+- 13919_숨바꼭질4를 풀면서, **파이선에서의 재귀는 최대한 지양**해야겠다는 결론을 내렸다.
+    1. 런타임 에러 (RecursionError)의 위험이 있다. 파이선을 재귀 호출 깊이를 제한하면서 발생하는 문제이다. 아래 코드로 재귀 깊이 제한을 풀 수 있긴하다. 
+
+        ```python
+        import sys
+
+        MAX = 100000
+        sys.setrecursionlimit(MAX*2)
+        ```
+
+    2. 파이선에서의 재귀호출은 메모리와 시간 복잡도가 크게 증가하게 한다. 특히 무한루프로 구현할 수 있는 똑같은 동작을 재귀로 구현했을땐, 공간 복잡도(메모리)가 약 2-3배 정도 증가했다. 🥲 
+
+        ![말도 안되는 차이](https://user-images.githubusercontent.com/59532818/115101542-0eed6000-9f80-11eb-92c1-57e4af210fbb.png)
+        
+        - [[BOJ] 13913_숨바꼭질4.py](https://github.com/sery270/Algorithm/commit/6e91fad2a5a5ccae10fb38d410bfe4cf13a86aee)
+
+            ```python
+            # 메모리 36628 KB
+            # 시간 256 ms
+
+            k = K
+              while 1:
+                if before[k] == N:
+                  path.append(before[k])
+                  break
+                path.append(before[k])
+                k = before[k]
+            ```
+        - [[BOJ] 13913_숨바꼭질4_recursion.py](https://github.com/sery270/Algorithm/commit/aae2502d9720b08c64a1b6a30dcf53eca81b021e)
+            ```python
+            # 메모리 118284 KB
+            # 시간 332 ms
+
+            def find_path(K):
+              if before[K] == N :
+                path.append(before[K])
+                return
+              path.append(before[K])
+              find_path(before[K])
+
+            find_path(K)
+            ```
+
 ### 🎮 2021/04/15 목
 - 요즘 언어들은 좋은 연산자가 많다. 예를 들면 in, not in, is, range 등등 직관적이어서 좋다. collections 너무 좋다.
 - BFS 공부하면서, gragh 입력 방식을 정리하고 있는데, 생각보다 정말 다양하다. 
