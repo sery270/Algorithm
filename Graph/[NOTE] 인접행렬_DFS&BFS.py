@@ -13,8 +13,8 @@ INF = 999999999 # 연결 안된 경우
 graph2 =[[INF]*(N+1) for _ in range(N+1)]
 for i in range(M):
   node, node2 = map(int,input().split())
-  # 무가중치, 무방향
-  # 연결됨 & 무가중치 -> 0
+  # 무비용, 무방향
+  # 연결됨 & 무비용 -> 0
   # 연결안됨 -> INF
   graph2[node][node2] = 0
   graph2[node2][node] = 0

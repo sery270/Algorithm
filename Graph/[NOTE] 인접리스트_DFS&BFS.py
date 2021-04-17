@@ -16,11 +16,12 @@ BFSvisited = [False for _ in range(N+1)]
 graph = [[] for _ in range(N+1)]
 for i in range(M):
   node, node2 = map(int,input().split())
-  # 무가중치, 무방향
-  # 연결됨 & 무가중치 -> 0
+  # 무비용, 무방향
+  # 연결됨 & 무비용 -> 0
   graph[node].append((node2,0))
   graph[node2].append((node,0))
 # 노드 번호 상관 없이 append 되므로, 
+# 문제에 "여러 노드 중 작은 것 부터 탐색" 같은 조건이 있으면, 정렬해줘야함
 # 노드 번호 순으로 정렬
 for i in range(1, N+1):
   graph[i] = sorted(graph[i], key = lambda x: x[0])
