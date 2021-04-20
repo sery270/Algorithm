@@ -4,7 +4,58 @@
 
 ## Algorithm 스터디 TIL(Today I Learned)
 
-### 🎮 2021/04/17 토
+### 🎮 2021/04/20 화
+
+- 파이선의 **for-else, while-else** 문을 들어보셨나요. 오늘 BOJ 9019를 풀면서 발견한 트릭이다. 각 반복문-else에선, 반복문이 끝까지 정상적으로 돌았을때, else의 내용을 실행한다. 
+
+  - 아래는 for - else 의 예제이다. 반복문이 정상적으로 종료되고 for-else의 else가 실행된 결과이다. 
+
+  ```python
+  i = 0
+  for i in range(0,5):
+    print(f"it's {i}")
+    i += 1
+  else:
+    print('while-else !')
+  
+  # it's 0
+  # it's 1
+  # it's 2
+  # it's 3
+  # it's 4
+  # while-else !
+  
+  
+  ```
+
+  - 아래는 while-else의 예제이다. 반복문이 break로 인해 비정상적으로 종료되고 for-else의 else가 실행되지 않았다.
+
+  ```python
+  i = 0
+  while True :
+    print(f"it\'s {i}")
+    if i == 5:
+      print("it's break time")
+      break
+    i += 1
+  else:
+    print('while-else !')
+  
+  # it's 0
+  # it's 1
+  # it's 2
+  # it's 3
+  # it's 4
+  # it's 5
+  # it's break time
+  
+  ```
+
+  
+
+
+
+### 🎮 2021/04/18 일
 
 - 2178_미로 탐색을 풀면서, **파이선의 for를 통한 리스트 생성 방식과 * 를 통한 리스트 생성 방식의 차이점**을 알게되었다. * 를 통한 리스트 생성은 주소까지 복사되어, 추후에 값 초기화시에 원치 않는 위치도 초기화 될 수 있으므로, **for를 통한 리스트 생성을 사용해야겠다고 결론**지었다.
     1. **for를 통한 리스트 생성**
@@ -45,7 +96,7 @@
         [(1, 2), 0, 0, 0, 0], 
         [(1, 2), 0, 0, 0, 0]
         ]
-        ```ㅍ
+        ```
 ### 🎮 2021/04/17 토
 
 - 13919_숨바꼭질4를 풀면서, **파이선에서의 재귀는 최대한 지양**해야겠다는 결론을 내렸다.
