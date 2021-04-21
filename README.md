@@ -4,6 +4,72 @@
 
 ## Algorithm 스터디 TIL(Today I Learned)
 
+### 🎮 2021/04/21 수
+
+- BOJ 9019를 풀다가, L과 R 연산 (왼쪽 회전, 오른쪽 회전 : 1234 → 2341, 1234 → 4123)을 구현하면서 고통받았었다. 이 **회전 연산을 deque의 rotate를 사용**하여 리펙토링 해보았다. 과정은 아래와 같다.
+    - 전체 코드는 [여기에](https://github.com/sery270/Algorithm/blob/master/Note/%5BNOTE%5D%20%ED%9A%8C%EC%A0%84%EC%97%B0%EC%82%B0.py)
+    1. 입력된 숫자 N을 str로 표현하기 → N_str
+
+        ```python
+        N = int(input()) # input : 12
+        print(N)
+        print(type(N))
+        # 12
+        # <class 'int'>
+
+        N_str = str(N)
+        print(N_str)
+        print(type(N_str))
+        # 12
+        # <class 'str'>
+        ```
+
+    2. len(N_str)에 따라 (N의 자릿수에 따라) 0을 패딩해주기 → 패딩된 N_str
+
+        ```python
+        N_str = N_str.zfill(4)
+        print(N_str)
+        print(type(N_str))
+        # 0012
+        # <class 'str'>
+        ```
+
+    3. N_str을 deque로 표현하기 → N_dq
+
+        ```python
+        N_dq = deque(N_str)
+        print(N_dq)
+        print(type(N_dq))
+        # deque(['0', '0', '1', '2'])
+        # <class 'collections.deque'>
+        ```
+
+    4. N_dq를 회전하기 
+
+        ```python
+        N_dq.rotate(1)
+        print(N_dq)
+        print(type(N_dq))
+        # deque(['2', '0', '0', '1'])
+        # <class 'collections.deque'>
+        ```
+
+    5. N_dq를 다시 int로 변환하기 
+
+        ```python
+        N_str = "".join(N_dq)
+        print(N_str)
+        print(type(N_str))
+        # 2001
+        # <class 'str'>
+
+        N = int(N_str)
+        print(N)
+        print(type(N))
+        # 2001
+        # <class 'int'>
+        ```
+
 ### 🎮 2021/04/20 화
 
 - 파이선의 **for-else, while-else** 문을 들어보셨나요. 오늘 BOJ 9019를 풀면서 발견한 트릭이다. 각 반복문-else에선, 반복문이 끝까지 정상적으로 돌았을때, else의 내용을 실행한다. 
@@ -28,7 +94,7 @@
   
   ```
 
-  - 아래는 while-else의 예제이다. 반복문이 break로 인해 비정상적으로 종료되고 for-else의 else가 실행되지 않았다.
+  - 아래는 while-else의 예제이다. 반복문이 break로 인해 비정상적으로 종료되고 while-else의 else가 실행되지 않았다.
 
   ```python
   i = 0
