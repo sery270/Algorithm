@@ -4,6 +4,42 @@
 
 ## Algorithm 스터디 TIL(Today I Learned)
 
+### 🎮 2021/04/22 목
+
+- PG 단어변환을 풀면서, str의 특정 문자를 삭제하는 두가지 방법을 알게 되었다. 1개의 테스트 케이스를 통과 하지 못하고 있었는데, replace 함수에 대해 잘 모르고 쓴 것이 문제였다. replace와 인덱스 슬라이싱을 활용한 방법은 중복 출현된 문자에 대해서 다른 결과를 가져올 수 있다.
+    - 특정 인덱스의 문자를 삭제하기
+
+        ```python
+        now_tmp = now[:i] + now[i+1:]
+        word_tmp = word[:i] + word[i+1:]
+        ```
+
+    - 특정 문자를 모두 삭제하기
+
+        ```python
+        # replace는 비파괴적 함수이므로, 새로운 대입이 필요함
+        now_tmp = now.replace(now[i],"")
+        word_tmp = word.replace(word[i],"")
+        ```
+
+- 특정 원소의 값이 리스트의 몇번째 인덱스에 위치하는지 알려주는 함수 index()를 활용한 조건문은 아래와 같다.
+
+    ```python
+    # words, before는 str형 list
+    # now는 str
+
+    # index()가 제대로 실행되었을 때, 
+    # words에 now가 있을 때
+    if words.index(now) or words.index(now) == 0:
+    		now = before[words.index(now)]
+
+    # words에 now가 없으면 valueError 발생 시킴
+    # index()가 제대로 실행되지 않았을 때,
+    # words에 now가 없을 때
+    else:
+    		break
+    ```
+
 ### 🎮 2021/04/21 수
 
 - BOJ 9019를 풀다가, L과 R 연산 (왼쪽 회전, 오른쪽 회전 : 1234 → 2341, 1234 → 4123)을 구현하면서 고통받았었다. 이 **회전 연산을 deque의 rotate를 사용**하여 리펙토링 해보았다. 과정은 아래와 같다.
