@@ -21,23 +21,22 @@
         now_tmp = now.replace(now[i],"")
         word_tmp = word.replace(word[i],"")
         ```
-
-- 특정 원소의 값이 리스트의 몇번째 인덱스에 위치하는지 알려주는 함수 index()를 활용한 조건문은 아래와 같다.
+- 특정 원소의 값이 리스트의 몇번째 인덱스에 위치하는지 알려주는 함수 find()를 활용한 조건문은 아래와 같다.
+    - index(now)는 words에 now가 없을 때 valueError 발생시키므로, if문에 사용할 수 없다.
+    - find(now)는 words에 now가 없을 때 -1을 반환하므로, 이를 활용하여 if문에 사용할 수 있다.
 
     ```python
-    # words, before는 str형 list
+    # word는 str형 list, str형
+    # before는 str형 list
     # now는 str
 
-    # index()가 제대로 실행되었을 때, 
-    # words에 now가 있을 때
-    if words.index(now) or words.index(now) == 0:
-    		now = before[words.index(now)]
-
-    # words에 now가 없으면 valueError 발생 시킴
-    # index()가 제대로 실행되지 않았을 때,
-    # words에 now가 없을 때
+    # if문에선 0이 false고, 0 이외의 것들은 true이므로, +1을 해서 분기처리 해줌 
+    if words.find(now)+1:
+      print(words.find(now))
+      print("if")
     else:
-    		break
+      print(words.find(now))
+      print("else")
     ```
 
 ### 🎮 2021/04/21 수
