@@ -7,6 +7,7 @@ class Node:
         self.random = random
 """
 
+# 20210201 19:00
 class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
         if not head:
@@ -43,7 +44,7 @@ class Solution:
 
         
         
-        
+       
         
 '''
 0. Test
@@ -207,3 +208,4 @@ class Solution:
 
 
 '''
+# 20210201 19:12
