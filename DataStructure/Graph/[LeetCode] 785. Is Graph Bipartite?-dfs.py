@@ -152,7 +152,7 @@ class Solution:
                     dfs(nh) 
     
 
-    5) Undirected graph
+    5) unconnected graph
     
         for i in range(len(graph)):
             if visited[i]:

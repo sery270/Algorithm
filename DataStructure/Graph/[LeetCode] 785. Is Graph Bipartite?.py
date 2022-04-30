@@ -139,7 +139,7 @@ class Solution:
                         visisted[now] = true
                 q = nq
 
-    5) Undirected graph
+    5) unconnected graph
 
             
         - BFS
